@@ -1,0 +1,19 @@
+import urllib.request
+import random
+from random import randint
+import time
+
+def RandomLove():
+	url= "http://www.nowcheerup.me/index.php"
+	randNumber = [str(random.randint(0,9)) for r in range(8)]
+	data = "number=%2B336"+"".join(randNumber)+"&submit=Cheer Up Time!"
+	print("Number 06"+"".join(randNumber)+" cheered up :) ")
+	req = urllib.request.Request(url,data)
+	response = urllib.request.urlopen(req)
+	page = response.read()
+	print("OK" if "success.png" in page.decode() else "Not OK")
+	
+
+while(1):
+	RandomLove()
+	time.sleep(60)
